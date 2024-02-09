@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 
 import {
@@ -11,12 +11,15 @@ import {
 import { defaultSnapOrigin } from '../config';
 import { MetamaskActions, MetaMaskContext } from '../hooks';
 import {
+  addEthereumChain,
   connectSnap,
   getSnap,
   isLocalSnap,
   sendHello,
   shouldDisplayReconnectButton,
 } from '../utils';
+import { ENetworkName, networksConstant } from '../constants';
+import { EthereumChain } from 'src/types';
 
 const Container = styled.div`
   display: flex;
@@ -108,6 +111,13 @@ const Index = () => {
   const isMetaMaskReady = isLocalSnap(defaultSnapOrigin)
     ? state.isFlask
     : state.snapsDetected;
+
+  useEffect(() => {
+    if (isMetaMaskReady && state.installedSnap) {
+      const networks: EthereumChain[] = [networksConstant[ENetworkName.MAINNET], networksConstant[ENetworkName.TESTNET]]; 
+      addEthereumChain(networks);
+    }
+  }, [isMetaMaskReady, state.installedSnap]);
 
   const handleConnectClick = async () => {
     try {

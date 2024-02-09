@@ -1,1 +1,1 @@
-export { type GetSnapsResponse, type Snap } from './snap';
+export { type GetSnapsResponse, type Snap, type EthereumChain } from './snap';

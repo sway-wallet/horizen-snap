@@ -1,7 +1,7 @@
 import type { MetaMaskInpageProvider } from '@metamask/providers';
 
 import { defaultSnapOrigin } from '../config';
-import type { GetSnapsResponse, Snap } from '../types';
+import type { EthereumChain, GetSnapsResponse, Snap } from '../types';
 
 /**
  * Get the installed snaps in MetaMask.
@@ -51,6 +51,16 @@ export const getSnap = async (version?: string): Promise<Snap | undefined> => {
     console.log('Failed to obtain installed snap', error);
     return undefined;
   }
+};
+
+/**
+ * Add the Ethereum chain to MetaMask.
+ */
+export const addEthereumChain = async ( params: EthereumChain[]) => {
+  await window.ethereum.request({
+    method: 'wallet_addEthereumChain',
+    params: params,
+  });
 };
 
 /**

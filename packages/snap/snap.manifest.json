@@ -1,18 +1,18 @@
 {
   "version": "0.1.0",
-  "description": "An example Snap written in TypeScript.",
-  "proposedName": "TypeScript Example",
+  "description": "Manage Horizen SWAY wallet with MetaMask.",
+  "proposedName": "Horizen Snap",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "https://github.com/orgs/sway-wallet/horizen-snap.git"
   },
   "source": {
-    "shasum": "UR3MRpU2s0EcluYpcugxx6uOC/NwNk0zkPz5KFIcopc=",
+    "shasum": "yAKz7EIljhHLqtYG/dXw9IY1LvwTdMORQjgid4w55Fw=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/icon.svg",
-        "packageName": "snap",
+        "packageName": "horizen-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }
